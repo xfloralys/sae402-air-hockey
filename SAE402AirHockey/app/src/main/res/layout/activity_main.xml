@@ -51,7 +51,8 @@
                 android:id="@+id/btnPlaySolo"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
-                android:text="1 vs 1" />
+                android:text="1 vs 1"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"
@@ -61,7 +62,8 @@
                 android:id="@+id/btnPlayteam"
                 android:layout_width="250dp"
                 android:layout_height="80dp"
-                android:text="2 vs 2" />
+                android:text="2 vs 2"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>
