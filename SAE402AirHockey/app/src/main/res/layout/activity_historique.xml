@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Historique">
 
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="958dp"
         android:layout_height="80dp"
-        android:background="#ABABAB"
+        android:background="#A4A4A4"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,21 +19,23 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textLogo"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Air Hockey"
-            android:textColor="#000000"
             android:textSize="34sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/content"
-        android:layout_width="958dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="80dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/footer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,23 +48,22 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnPlaySolo"
-                android:layout_width="250dp"
-                android:layout_height="80dp"
-                android:text="1 vs 1"
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Historique des parties"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="8dp" />
 
-            <Button
-                android:id="@+id/btnPlayteam"
-                android:layout_width="250dp"
-                android:layout_height="80dp"
-                android:text="2 vs 2"
-                android:textStyle="bold" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="600dp"
+                android:layout_height="280dp" />
 
         </LinearLayout>
     </LinearLayout>
@@ -71,7 +72,6 @@
         android:id="@+id/footer"
         android:layout_width="958dp"
         android:layout_height="80dp"
-        android:background="#A6A6A6"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,18 +79,11 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btnHistorique"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnRetour"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:text="Historique" />
-
-        <Button
-            android:id="@+id/btnClassement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Classement" />
+            android:text="Retour" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
