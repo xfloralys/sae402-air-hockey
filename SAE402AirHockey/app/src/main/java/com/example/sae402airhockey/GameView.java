@@ -1,4 +1,4 @@
-package com.example.temp;
+package com.example.sae402airhockey;
 
 import android.content.Context;
 import android.graphics.Canvas;
