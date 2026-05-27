@@ -51,7 +51,9 @@
                 android:layout_width="250dp"
                 android:layout_height="80dp"
                 android:text="1 vs 1"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -62,7 +64,9 @@
                 android:layout_width="250dp"
                 android:layout_height="80dp"
                 android:text="2 vs 2"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
 
         </LinearLayout>
     </LinearLayout>
@@ -80,17 +84,29 @@
 
         <Button
             android:id="@+id/btnHistorique"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
             android:layout_weight="1"
-            android:text="Historique" />
+            android:text="Historique"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnClassement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
             android:layout_weight="1"
-            android:text="Classement" />
+            android:text="Classement"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
