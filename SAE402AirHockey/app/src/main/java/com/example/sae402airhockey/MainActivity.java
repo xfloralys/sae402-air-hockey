@@ -1,4 +1,4 @@
-package com.example.temp;
+package com.example.sae402airhockey;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.temp.controller.MainActivityController;
 
 public class MainActivity extends AppCompatActivity {
     @Override
