@@ -1,4 +1,4 @@
-package com.example.sae402airhockey;
+package com.example.temp;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
