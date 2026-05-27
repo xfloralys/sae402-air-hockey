@@ -1,7 +1,6 @@
-package com.example.sae402airhockey;
+package com.example.temp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,11 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.sae402airhockey.controller.MainActivityController;
+import com.example.temp.controller.MainActivityController;
 
 public class MainActivity extends AppCompatActivity {
-    private Activity a;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,24 +25,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        findViewById(R.id.btnPlaySolo).setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, SelectionPseudo.class);
-            startActivity(intent);
-        });
-
-        findViewById(R.id.btnPlayteam).setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, SelectionPseudo.class);
-            startActivity(intent);
-        });
-
-        findViewById(R.id.btnHistorique).setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Historique.class);
-            startActivity(intent);
-        });
-
-
-        findViewById(R.id.btnClassement).setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Classement.class);
+        Button btn1vs1 = findViewById(R.id.btnPlaySolo);
+        btn1vs1.setOnClickListener(v -> {
+            Intent intent = new Intent(this, GameActivity.class);
             startActivity(intent);
         });
     }
