@@ -1,39 +1,39 @@
-package com.example.sae402airhockey;
+package com.example.temp;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.SurfaceView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 /**
  * TODO: document your custom view class.
  */
-public class GameView extends View {
+public class GameView extends SurfaceView {
     private Paint redPaint, bluePaint, blackPaint, whitePaint;
     private int viewWidth, viewHeight, viewCenterX, viewCenterY;
     private int goalWidth, goalHeight, leftGoalPosX, rightGoalPosX, goalPosY;
 
     public GameView(Context context) {
         super(context);
-        // init(null, 0);
+        init();
     }
 
     public GameView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        // init(attrs, 0);
+        init();
     }
 
     public GameView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        // init(attrs, defStyle);
+        init();
     }
 
-    private void init(AttributeSet attrs, int defStyle) {
+    private void init() {
         viewWidth = this.getMeasuredWidth();
         viewHeight = this.getMeasuredHeight();
         viewCenterX = (int)(viewWidth / 2);
@@ -54,14 +54,22 @@ public class GameView extends View {
         blackPaint.setColor(Color.rgb(0, 0, 0));
         whitePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         whitePaint.setColor(Color.rgb(255, 255, 255));
+
+        Log.v("", "a");
+        draw();
     }
 
-    protected void onDraw(Canvas c) {
-        super.onDraw(c);
+
+    private void draw() {
+        Canvas c = new Canvas();
+        Log.v("", "b");
+        c.drawColor(Color.WHITE);
 
         // Traits bleus
-        c.drawRect((float)(viewCenterX / 2.25), 0, 10, viewHeight, bluePaint); // Gauche
-        c.drawRect(viewWidth - (float)(viewCenterX / 2.25), 0, 10, viewHeight, bluePaint); // Droite
+        c.drawRect((float) (viewCenterX / 2.25), 0, 10, viewHeight, bluePaint); // Gauche
+        c.drawRect(viewWidth - (float) (viewCenterX / 2.25), 0, 10, viewHeight, bluePaint); // Droite
+
+        Log.v("", "c");
 
         // Buts
         c.drawRect(leftGoalPosX, goalPosY, goalWidth, goalHeight, blackPaint); // But à gauche
