@@ -79,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btnRetour"
+            android:id="@+id/btnBackMain"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_weight="1"
