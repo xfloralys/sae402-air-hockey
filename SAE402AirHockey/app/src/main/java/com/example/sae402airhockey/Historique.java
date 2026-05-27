@@ -1,5 +1,6 @@
 package com.example.sae402airhockey;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +20,11 @@ public class Historique extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        findViewById(R.id.btnBackMain).setOnClickListener(v -> {
+            Intent intent = new Intent(Historique.this, MainActivity.class);
+            startActivity(intent);
         });
     }
 }

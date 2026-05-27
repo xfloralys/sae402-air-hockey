@@ -23,6 +23,10 @@
             android:exported="false"
             android:theme="@style/Theme.SAE402AirHockey" />
         <activity
+            android:name=".SelectionPseudo"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
