@@ -14,11 +14,11 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.sample_game_view);
+        /*setContentView(R.layout.sample_game_view);
         canvasLayout = (LinearLayout)findViewById(R.id.drawGameView);
         customGameView = new GameView(this);
         canvasLayout.addView(customGameView);
-        setContentView(canvasLayout);
-
+        setContentView(canvasLayout); */
+        setContentView(R.layout.activity_game);
     }
 }

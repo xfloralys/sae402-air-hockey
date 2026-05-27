@@ -14,6 +14,13 @@ import android.widget.LinearLayout;
  * TODO: document your custom view class.
  */
 public class GameView extends SurfaceView {
+    /*
+     * ----- FICHIER NON UTILISE -----
+     * Mais pour l'instant il reste quand
+     * même dans le repo parce que ça reste
+     * une bonne base pour plus tard
+     */
+
     private Paint redPaint, bluePaint, blackPaint, whitePaint;
     private int viewWidth, viewHeight, viewCenterX, viewCenterY;
     private int goalWidth, goalHeight, leftGoalPosX, rightGoalPosX, goalPosY;
@@ -34,8 +41,9 @@ public class GameView extends SurfaceView {
     }
 
     private void init() {
-        viewWidth = this.getMeasuredWidth();
-        viewHeight = this.getMeasuredHeight();
+        viewWidth = 1920;
+        viewHeight = 1080;
+        Log.v("", String.valueOf(viewWidth));
         viewCenterX = (int)(viewWidth / 2);
         viewCenterY = (int)(viewHeight / 2);
 
