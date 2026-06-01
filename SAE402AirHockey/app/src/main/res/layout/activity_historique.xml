@@ -62,6 +62,7 @@
                 android:layout_height="8dp" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/affichageHistorique"
                 android:layout_width="600dp"
                 android:layout_height="280dp" />
 
