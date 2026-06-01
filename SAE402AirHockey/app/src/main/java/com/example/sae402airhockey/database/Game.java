@@ -21,12 +21,12 @@ public class Game {
     @ColumnInfo(name = "opponentName")
     public String opponentName;
 
-    @Ignore
-    Game(String opponentName) {
+    public Game(String opponentName) {
         this.opponentName = opponentName;
     }
 
-    Game(int playerScore, int opponentScore, String opponentName) {
+    @Ignore
+    public Game(int playerScore, int opponentScore, String opponentName) {
         this.playerScore = playerScore;
         this.opponentScore = opponentScore;
         this.opponentName = opponentName;

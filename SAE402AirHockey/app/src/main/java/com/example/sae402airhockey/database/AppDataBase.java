@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Player.class, Game.class, GameHistory.class, Replay.class, ReplayList.class, ReplayFrame.class}, version = 1)
+@Database(entities = {Player.class, Game.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
     // on crée une instance de la classe qui est statique : pattern singleton
     // qui garantie l'existence d'une seule instance
@@ -15,10 +15,6 @@ public abstract class AppDataBase extends RoomDatabase {
     // on crée un accès pour chaque DAO
     public abstract PlayerDAO getPlayerDAO();
     public abstract GameDAO getGameDAO();
-    public abstract GameHistoryDAO getGameHistoryDAO();
-    public abstract ReplayDAO getReplayDAO();
-    public abstract ReplayListDAO getReplayListDAO();
-    public abstract ReplayFrameDAO getReplayFrameDAO();
 
     public static AppDataBase getAppDataBase(Context context) {
         if (bddInstance == null) { // Si la base n'est pas déjà instanciée
