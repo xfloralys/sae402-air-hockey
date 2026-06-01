@@ -20,8 +20,8 @@ public class Player {
     @ColumnInfo(name = "nbTotalPoints")
     public int nbTotalPoints;
 
-    @ColumnInfo(name = "replayList")
-    public ReplayList replayList;
+    //@ColumnInfo(name = "replayList")
+    // public ReplayList replayList;
 
     Player(String name) {
         this.name = name;
@@ -29,6 +29,6 @@ public class Player {
 
     Player(String name, ReplayList replayList) {
         this.name = name;
-        this.replayList = replayList;
+       // this.replayList = replayList;
     }
 }

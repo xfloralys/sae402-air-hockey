@@ -24,9 +24,33 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Mode de jeu 1VS1 -> Sélection pseudo
         Button btn1vs1 = findViewById(R.id.btnPlaySolo);
         btn1vs1.setOnClickListener(v -> {
-            Intent intent = new Intent(this, GameActivity.class);
+            Intent intent = new Intent(this, SelectionPseudo.class);
+            intent.putExtra("NB_PLAYERS", 2); // 2 Joueurs
+            startActivity(intent);
+        });
+
+        // Mode de jeu 2VS2 -> Sélection pseudo
+        Button btn2vs2 = findViewById(R.id.btnPlayTeam);
+        btn2vs2.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SelectionPseudo.class);
+            intent.putExtra("NB_PLAYERS", 4); // 4 Joueurs
+            startActivity(intent);
+        });
+
+        // Accueil -> Historique
+        Button btnHistorique = findViewById(R.id.btnHistorique);
+        btnHistorique.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Historique.class);
+            startActivity(intent);
+        });
+
+        // Accueil -> Classement
+        Button btnClassement = findViewById(R.id.btnClassement);
+        btnClassement.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Classement.class);
             startActivity(intent);
         });
     }

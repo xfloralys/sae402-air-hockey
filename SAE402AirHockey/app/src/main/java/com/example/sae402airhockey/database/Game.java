@@ -2,6 +2,7 @@ package com.example.sae402airhockey.database;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -20,6 +21,7 @@ public class Game {
     @ColumnInfo(name = "opponentName")
     public String opponentName;
 
+    @Ignore
     Game(String opponentName) {
         this.opponentName = opponentName;
     }
