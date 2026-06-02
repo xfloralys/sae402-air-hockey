@@ -1,5 +1,6 @@
 package com.example.sae402airhockey;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,9 +15,13 @@ import java.util.ArrayList;
 public class GameActivity extends AppCompatActivity {
     private LinearLayout canvasLayout = null;
 
+    private int compteur = 10;
+
     // Score des Joueurs
     private int scoreP1 = 0;
     private int scoreP2 = 0;
+
+    private ArrayList<String> pseudos;
     GameView customGameView = null;
 
     @Override
@@ -30,15 +35,16 @@ public class GameActivity extends AppCompatActivity {
         setContentView(canvasLayout); */
         setContentView(R.layout.activity_game);
 
-        // PSEUDO
         // Récupérer la liste des pseudos
-        ArrayList<String> pseudos = getIntent().getStringArrayListExtra("PLAYER_PSEUDOS");
+
+        pseudos = getIntent().getStringArrayListExtra("PLAYER_PSEUDOS");
 
         // En 2vs2
         // Joueur 2 devient Joueur 3 au niveau de l'affichage :
         // Équipe 1 = J1 et J3
         // Équipe 2 = J2 et J4
 
+        // PSEUDO
         if (pseudos != null) {
             // Récupérer les TextView
             TextView firstPlayerPseudo = findViewById(R.id.firstPlayerPseudo);
@@ -66,6 +72,7 @@ public class GameActivity extends AppCompatActivity {
         TextView textScoreP1 = findViewById(R.id.firstPlayerScore);
         TextView textScoreP2 = findViewById(R.id.secondPlayerScore);
 
+        // TEST POUR LES SCORES
         // Bouton pour ajouter un point au Joueur 1 (ou Équipe 1)
         Button btnAddScoreP1 = findViewById(R.id.addScoreP1);
         btnAddScoreP1.setOnClickListener(v -> {
@@ -79,5 +86,31 @@ public class GameActivity extends AppCompatActivity {
             scoreP2++;
             textScoreP2.setText(String.valueOf(scoreP2));
         });
+
+        // END GAME
+        findViewById(R.id.addScoreP1).setOnClickListener(v -> {
+            scoreP1++;
+            textScoreP1.setText(String.valueOf(scoreP1));
+            checkEndOfGame();
+        });
+
+        findViewById(R.id.addScoreP2).setOnClickListener(v -> {
+            scoreP2++;
+            textScoreP2.setText(String.valueOf(scoreP2));
+            checkEndOfGame();
+        });
+    }
+
+    // Méthode pour vérifier la fin
+    private void checkEndOfGame() {
+        compteur--;
+        if (compteur <= 0) {
+            Intent intent = new Intent(this, ResultatPartie.class);
+            intent.putExtra("SCORE_P1", scoreP1);
+            intent.putExtra("SCORE_P2", scoreP2);
+            intent.putStringArrayListExtra("PLAYER_PSEUDOS", this.pseudos);
+            startActivity(intent);
+            finish();
+        }
     }
 }
