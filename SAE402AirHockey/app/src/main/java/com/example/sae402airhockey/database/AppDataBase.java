@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Player.class, Game.class}, version = 1)
+@Database(entities = {Player.class, Game.class}, version = 2)
 public abstract class AppDataBase extends RoomDatabase {
     // on crée une instance de la classe qui est statique : pattern singleton
     // qui garantie l'existence d'une seule instance
