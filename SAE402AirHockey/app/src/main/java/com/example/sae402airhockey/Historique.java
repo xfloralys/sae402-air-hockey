@@ -10,9 +10,11 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.helper.widget.Grid;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sae402airhockey.database.AppDataBase;
@@ -22,8 +24,8 @@ import com.example.sae402airhockey.database.GameDAO;
 public class Historique extends AppCompatActivity {
     private GameDAO daoQuery;
     private Activity a;
-    private HistoriqueAdapter hAdapter;
-    private RecyclerView hView;
+    private HistoriqueAdapter recyclerAdapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +48,16 @@ public class Historique extends AppCompatActivity {
             accessDataBase();
             Game[] gameList = daoQuery.getAllGame();
 
+            // Game gameTest = new Game("John", 0, 3, "Jane");
+            // Game gameTest2 = new Game("Bob", 7, 1, "Gabriel");
+
             runOnUiThread(
                 () -> {
-                    hAdapter = new HistoriqueAdapter(a, gameList);
-                    hView = findViewById(R.id.affichageHistorique);
+                    GridLayoutManager glm = new GridLayoutManager(this, 1);
+                    recyclerView = findViewById(R.id.affichageHistorique);
+                    recyclerView.setLayoutManager(glm);
+                    recyclerAdapter = new HistoriqueAdapter(a, gameList);
+                    recyclerView.setAdapter(recyclerAdapter);
                 }
             );
         }).start();

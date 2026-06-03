@@ -12,6 +12,9 @@ public class Game {
     @ColumnInfo(name = "id")
     public int id;
 
+    @ColumnInfo(name = "playerName")
+    public String playerName;
+
     @ColumnInfo(name = "playerScore")
     public int playerScore;
 
@@ -21,12 +24,14 @@ public class Game {
     @ColumnInfo(name = "opponentName")
     public String opponentName;
 
-    public Game(String opponentName) {
+    @Ignore
+    public Game(String playerName, String opponentName) {
+        this.playerName = playerName;
         this.opponentName = opponentName;
     }
 
-    @Ignore
-    public Game(int playerScore, int opponentScore, String opponentName) {
+    public Game(String playerName, int playerScore, int opponentScore, String opponentName) {
+        this.playerName = playerName;
         this.playerScore = playerScore;
         this.opponentScore = opponentScore;
         this.opponentName = opponentName;

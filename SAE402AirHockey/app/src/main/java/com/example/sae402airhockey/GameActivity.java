@@ -2,6 +2,8 @@ package com.example.sae402airhockey;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -12,9 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class GameActivity extends AppCompatActivity {
-    private LinearLayout canvasLayout = null;
-
+public class GameActivity extends AppCompatActivity implements View.OnTouchListener {
     private int compteur = 10;
 
     // Score des Joueurs
@@ -22,17 +22,24 @@ public class GameActivity extends AppCompatActivity {
     private int scoreP2 = 0;
 
     private ArrayList<String> pseudos;
+
+    // Gestion des poignées et du palet
+    private LinearLayout canvasLayout = null;
     GameView customGameView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        /*setContentView(R.layout.sample_game_view);
+
+        setContentView(R.layout.sample_game_view);
+
         canvasLayout = (LinearLayout)findViewById(R.id.drawGameView);
-        customGameView = new GameView(this);
+        customGameView = new GameView(getApplicationContext());
+        customGameView.setOnTouchListener(this);
         canvasLayout.addView(customGameView);
-        setContentView(canvasLayout); */
+        setContentView(canvasLayout);
+
         setContentView(R.layout.activity_game);
 
         // Récupérer la liste des pseudos
@@ -111,6 +118,20 @@ public class GameActivity extends AppCompatActivity {
             intent.putStringArrayListExtra("PLAYER_PSEUDOS", this.pseudos);
             startActivity(intent);
             finish();
+        }
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (view instanceof SurfaceView) {
+            float x = motionEvent.getX();
+            float y = motionEvent.getY();
+            customGameView.setCircleX(x);
+            customGameView.setCircleY(y);
+            customGameView.drawPlayer();
+            return true;
+        } else {
+            return false;
         }
     }
 }
