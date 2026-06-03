@@ -21,7 +21,9 @@ public abstract class AppDataBase extends RoomDatabase {
             synchronized (AppDataBase.class) { // Garantie qu'aucun autre processus tente de faire le traitement en même temps
                 if (bddInstance == null) {
                     bddInstance = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDataBase.class, "air_hockey_db").build();
+                            AppDataBase.class, "air_hockey_db")
+                            .fallbackToDestructiveMigration()
+                            .allowMainThreadQueries().build();
                 }
             }
         }

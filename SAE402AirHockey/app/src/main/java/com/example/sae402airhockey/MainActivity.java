@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.sae402airhockey.database.AppDataBase;
+
 
 public class MainActivity extends AppCompatActivity {
     @Override
