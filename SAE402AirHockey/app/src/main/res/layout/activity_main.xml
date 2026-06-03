@@ -7,11 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/terrain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="958dp"
-        android:layout_height="80dp"
-        android:background="#ABABAB"
+        android:layout_height="120dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,10 +34,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/freshman"
             android:gravity="center"
             android:text="Air Hockey"
             android:textColor="#000000"
-            android:textSize="34sp"
+            android:textSize="50sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -48,9 +60,12 @@
 
             <Button
                 android:id="@+id/btnPlaySolo"
-                android:layout_width="250dp"
+                android:layout_width="300dp"
                 android:layout_height="80dp"
+                android:backgroundTint="#003262"
+                android:fontFamily="@font/bebas_neue"
                 android:text="1 vs 1"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:cornerRadius="12dp" />
@@ -59,11 +74,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="8dp" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
             <Button
                 android:id="@+id/btnPlayTeam"
-                android:layout_width="250dp"
+                android:layout_width="300dp"
                 android:layout_height="80dp"
+                android:backgroundTint="#003262"
+                android:fontFamily="@font/bebas_neue"
                 android:text="2 vs 2"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:cornerRadius="12dp" />
@@ -75,7 +97,6 @@
         android:id="@+id/footer"
         android:layout_width="958dp"
         android:layout_height="80dp"
-        android:background="#A6A6A6"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,9 +106,16 @@
         <Button
             android:id="@+id/btnHistorique"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
+            android:backgroundTint="#003262"
+            android:fontFamily="@font/bebas_neue"
+            android:paddingLeft="0dp"
+            android:paddingTop="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
             android:text="Historique"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
             app:cornerRadius="12dp" />
@@ -100,9 +128,17 @@
         <Button
             android:id="@+id/btnClassement"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
+            android:backgroundTint="#003262"
+            android:fontFamily="@font/bebas_neue"
+            android:paddingLeft="0dp"
+            android:paddingTop="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
             android:text="Classement"
+            android:textColor="#FFF"
+            android:textColorLink="#000000"
             android:textSize="18sp"
             android:textStyle="bold"
             app:cornerRadius="12dp" />
