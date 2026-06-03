@@ -22,5 +22,11 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
+        this.nbGamesWon = 0;
+        this.nbTotalPoints = 0;
+        this.nbGamesPlayed = 0;
     }
+
+    @ColumnInfo(name = "nbGamesPlayed")
+    public int nbGamesPlayed;
 }

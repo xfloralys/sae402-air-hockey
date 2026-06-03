@@ -1,5 +1,6 @@
 package com.example.sae402airhockey.database;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -22,4 +23,10 @@ public interface PlayerDAO {
 
     @Query("SELECT * FROM Player WHERE id=:id")
     public Player getPlayer(int id);
+
+    @Query("SELECT * FROM Player WHERE name=:name")
+    public Player getPlayerByName(String name);
+
+    @Query("SELECT * FROM Player ORDER BY nbTotalPoints DESC")
+    public Player[] getAllPlayersSortedByPoints();
 }

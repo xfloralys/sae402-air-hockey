@@ -81,8 +81,14 @@ public class SelectionPseudo extends AppCompatActivity {
         // On utilise donc un Executor pour sauvegarder en arrière-plan
         java.util.concurrent.Executors.newSingleThreadExecutor().execute(() -> {
             AppDataBase db = AppDataBase.getAppDataBase(getApplicationContext());
-            Player player = new Player(pseudo);
-            db.getPlayerDAO().insertPlayer(player);
+
+            Player player = db.getPlayerDAO().getPlayerByName(pseudo);
+
+            if (player == null) {
+                // Si le joueur n'existe pas, créer le joueur
+                player = new Player(pseudo);
+                db.getPlayerDAO().insertPlayer(player);
+            }
 
             // Retour sur le thread principal pour mettre à jour l'interface
             runOnUiThread(() -> {

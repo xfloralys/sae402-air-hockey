@@ -7,94 +7,104 @@
     android:layout_height="match_parent"
     tools:context=".Classement">
 
+    <!-- HEADER -->
     <LinearLayout
         android:id="@+id/header"
-        android:layout_width="958dp"
+        android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="#A4A4A4"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
             android:text="Air Hockey"
             android:textSize="34sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 
+    <!-- CONTENT -->
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="80dp"
-        android:orientation="horizontal"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/footer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Classement des joueurs"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="600dp"
-                android:layout_height="280dp" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/footer"
-        android:layout_width="958dp"
-        android:layout_height="80dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Space
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:text="Classement des joueurs"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- LIGNE D'EN-TÊTE DU TABLEAU -->
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#DDDDDD"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text="Joueur"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                android:text="Points"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="Parties"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- RECYCLER VIEW -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/affichageClassement"
+            android:layout_width="600dp"
+            android:layout_height="match_parent"
+            android:background="#F5F5F5" />
+
+    </LinearLayout>
+
+    <!-- FOOTER -->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/btnBackMain"
-            android:layout_width="0dp"
+            android:layout_width="200dp"
             android:layout_height="60dp"
-            android:layout_weight="1"
             android:text="Retour"
             android:textSize="18dp"
             app:cornerRadius="12dp" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
