@@ -29,17 +29,26 @@ public class ResultatPartie extends AppCompatActivity {
         TextView textWinner = findViewById(R.id.textWinner);
         TextView textScoreFinal = findViewById(R.id.textScoreFinal);
 
-        // Déterminer le gagnant
+        textScoreFinal.setText(score1 + " - " + score2);
+
+        boolean isModeEquipe = pseudos.size() > 2;
+
         if (score1 > score2) {
-            textWinner.setText("Victoire de " + pseudos.get(0));
+            if (isModeEquipe) {
+                textWinner.setText("Victoire de l'Équipe 1 !");
+            } else {
+                textWinner.setText("Victoire de " + pseudos.get(0));
+            }
         } else if (score2 > score1) {
-            textWinner.setText("Victoire de " + pseudos.get(1));
+            if (isModeEquipe) {
+                textWinner.setText("Victoire de l'Équipe 2 !");
+            } else {
+                textWinner.setText("Victoire de " + pseudos.get(1));
+            }
         } else {
             textWinner.setText("Égalité !");
         }
 
-        textScoreFinal.setText(score1 + " - " + score2);
-        updateClassement(pseudos, score1, score2);
         findViewById(R.id.btnMenu).setOnClickListener(v -> finish());
     }
 
@@ -48,23 +57,27 @@ public class ResultatPartie extends AppCompatActivity {
             AppDataBase db = AppDataBase.getAppDataBase(getApplicationContext());
             PlayerDAO playerDAO = db.getPlayerDAO();
 
-            // Joueur 1
-            Player p1 = playerDAO.getPlayerByName(pseudos.get(0));
-            if (p1 != null) {
-                p1.nbTotalPoints += score1;
-                p1.nbGamesPlayed++; // +1 partie jouée
-                if (score1 > score2) p1.nbGamesWon++;
-                playerDAO.updatePlayer(p1);
+            // Équipe 1 : Joueur 1 et Joueur 3
+            updatePlayerStats(playerDAO, pseudos.get(0), score1, score1 > score2);
+            if (pseudos.size() >= 3) {
+                updatePlayerStats(playerDAO, pseudos.get(2), score1, score1 > score2);
             }
 
-            // Joueur 2
-            Player p2 = playerDAO.getPlayerByName(pseudos.get(1));
-            if (p2 != null) {
-                p2.nbTotalPoints += score2;
-                p2.nbGamesPlayed++; // +1 partie jouée
-                if (score2 > score1) p2.nbGamesWon++;
-                playerDAO.updatePlayer(p2);
+            // Équipe 2 : Joueur 2 et Joueur 4
+            updatePlayerStats(playerDAO, pseudos.get(1), score2, score2 > score1);
+            if (pseudos.size() >= 4) {
+                updatePlayerStats(playerDAO, pseudos.get(3), score2, score2 > score1);
             }
         });
+    }
+
+    private void updatePlayerStats(PlayerDAO dao, String name, int pointsPartie, boolean aGagne) {
+        Player p = dao.getPlayerByName(name);
+        if (p != null) {
+            p.nbTotalPoints += pointsPartie; // Points au total
+            p.nbGamesPlayed++;               // Nombre de parties totales
+            if (aGagne) p.nbGamesWon++;      // Victoires gagnées
+            dao.updatePlayer(p);
+        }
     }
 }
