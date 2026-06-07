@@ -11,7 +11,6 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#9B9B9B"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -20,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/freshman"
             android:gravity="center"
             android:text="Air Hockey"
             android:textColor="#1A1818"
@@ -38,6 +38,7 @@
             android:id="@+id/labelPseudoJoueur"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_neue"
             android:gravity="center"
             android:text="Pseudo du joueur N :"
             android:textSize="28sp"
@@ -63,6 +64,8 @@
             android:id="@+id/btnValider"
             android:layout_width="250dp"
             android:layout_height="80dp"
+            android:backgroundTint="#003262"
+            android:fontFamily="@font/bebas_neue"
             android:text="Valider"
             android:textSize="20sp"
             app:cornerRadius="12dp" />

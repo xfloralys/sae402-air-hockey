@@ -72,13 +72,11 @@ public class SelectionPseudo extends AppCompatActivity {
     // Mettre à jour l'affichage du label
     private void updateLabel() {
         labelPseudoJoueur.setText("Pseudo du joueur " + currentPlayerIndex + " :");
-        inputPseudo.setText(""); // On vide le champ pour le joueur suivant
+        inputPseudo.setText(""); // Vide le champ au joueur suivant
     }
 
     // Sauvegarder le pseudo et passer aux joueurs suivants
     private void savePlayerAndNext(java.lang.String pseudo) {
-        // Room interdit les opérations sur le thread principal (UI)
-        // On utilise donc un Executor pour sauvegarder en arrière-plan
         java.util.concurrent.Executors.newSingleThreadExecutor().execute(() -> {
             AppDataBase db = AppDataBase.getAppDataBase(getApplicationContext());
 
@@ -97,7 +95,7 @@ public class SelectionPseudo extends AppCompatActivity {
                     currentPlayerIndex++;
                     updateLabel();
                 } else {
-                    // Tous les joueurs ont été saisis, on lance le jeu
+                    // Lance le jeu
                     Intent intent = new Intent(SelectionPseudo.this, GameActivity.class);
                     intent.putStringArrayListExtra("PLAYER_PSEUDOS", playerPseudos);
                     startActivity(intent);

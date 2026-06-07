@@ -48,9 +48,6 @@ public class Historique extends AppCompatActivity {
             accessDataBase();
             Game[] gameList = daoQuery.getAllGame();
 
-            // Game gameTest = new Game("John", 0, 3, "Jane");
-            // Game gameTest2 = new Game("Bob", 7, 1, "Gabriel");
-
             runOnUiThread(
                 () -> {
                     GridLayoutManager glm = new GridLayoutManager(this, 1);

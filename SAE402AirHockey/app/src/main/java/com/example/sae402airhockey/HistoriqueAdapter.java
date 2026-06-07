@@ -56,7 +56,6 @@ public class HistoriqueAdapter extends RecyclerView.Adapter<HistoViewHolder> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View histoItemView = convertView;
         if (histoItemView == null) {
-            // Peu importe ce que j'essaie il veut pas reconnaître le listView
             histoItemView = LayoutInflater.from(getContext()).inflate( R.layout.historique_item, parent, false);
         }
 

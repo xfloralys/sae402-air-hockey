@@ -18,6 +18,7 @@
             android:id="@+id/textWinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/bebas_neue"
             android:text="Victoire !"
             android:textSize="36sp"
             android:textStyle="bold" />
@@ -26,6 +27,7 @@
             android:id="@+id/textScoreFinal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/freshman"
             android:text="0 - 0"
             android:textColor="#000000"
             android:textSize="64sp" />
@@ -35,7 +37,11 @@
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:layout_marginTop="32dp"
-            android:text="Retour au Menu" />
+            android:backgroundTint="#003262"
+            android:fontFamily="@font/bebas_neue"
+            android:text="Retour au Menu"
+            app:cornerRadius="12dp"
+            app:iconSize="20sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
